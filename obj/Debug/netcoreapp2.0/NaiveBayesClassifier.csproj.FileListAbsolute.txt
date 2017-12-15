@@ -1,0 +1,10 @@
+C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.csproj.CoreCompileInputs.cache
+C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.AssemblyInfoInputs.cache
+C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.AssemblyInfo.cs
+C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\bin\Debug\netcoreapp2.0\NaiveBayesClassifier.deps.json
+C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\bin\Debug\netcoreapp2.0\NaiveBayesClassifier.runtimeconfig.json
+C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\bin\Debug\netcoreapp2.0\NaiveBayesClassifier.runtimeconfig.dev.json
+C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\bin\Debug\netcoreapp2.0\NaiveBayesClassifier.dll
+C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\bin\Debug\netcoreapp2.0\NaiveBayesClassifier.pdb
+C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.dll
+C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.pdb
