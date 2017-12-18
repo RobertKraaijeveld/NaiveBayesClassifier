@@ -14,7 +14,6 @@ namespace NaiveBayesClassifier
         {
             this.classification = classification;
 
-
             Factors.Add("HateImmigrants", HateImmigrants);
             Factors.Add("HighTaxes", HighTaxes);
             Factors.Add("FreedomEmphasis", FreedomEmphasis);

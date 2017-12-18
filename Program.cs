@@ -10,14 +10,12 @@ namespace NaiveBayesClassifier
             List<Record> TrainingSet = new List<Record>()
             {
                 new Record("Conservative", true, true, false),
-                new Record("Socialist", false, true, true),
-                new Record("Classic Liberal", false, false, true)
+                new Record("Conservative", true, false, false),
             };
 
-            var toBeClassifiedRecord = new Record("Unknown", true, false, true);
-            
+            var toBeClassifiedRecord = new Record("Unknown", true, true, false);
+
             NaiveBayesClassifier bayesClassifier = new NaiveBayesClassifier(TrainingSet);
-            toBeClassifiedRecord.classification = bayesClassifier.ClassifyNewRecord(toBeClassifiedRecord).classification;
         }
     }
 }
