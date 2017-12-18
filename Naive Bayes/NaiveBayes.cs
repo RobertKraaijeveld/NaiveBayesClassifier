@@ -88,7 +88,7 @@ namespace NaiveBayesClassifier
             //Find out how likely you are per factor to have that factor be true
             foreach (var recordWithSameClassification in classifiedSet.Where(r => r.classification.Equals(record.classification)))
             {
-                
+                if(likelihoodPerFactorWhenHavingThisClassification.ContainsKey
             }
 
 
