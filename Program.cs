@@ -16,7 +16,8 @@ namespace NaiveBayesClassifier
 
             var toBeClassifiedRecord = new Record("Unknown", true, false, true);
             
-            NaiveBayesClassifier bayesClassifier = new NaiveBayesClassifier
+            NaiveBayesClassifier bayesClassifier = new NaiveBayesClassifier(TrainingSet);
+            toBeClassifiedRecord.classification = bayesClassifier.ClassifyNewRecord(toBeClassifiedRecord).classification;
         }
     }
 }
