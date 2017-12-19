@@ -8,3 +8,13 @@ C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\bin\Debu
 C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\bin\Debug\netcoreapp2.0\NaiveBayesClassifier.pdb
 C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.dll
 C:\Users\robert\Projects\Datascience Minor Project\naivebayesclassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.pdb
+E:\Hogeschool\NaiveBayesClassifier\bin\Debug\netcoreapp2.0\NaiveBayesClassifier.deps.json
+E:\Hogeschool\NaiveBayesClassifier\bin\Debug\netcoreapp2.0\NaiveBayesClassifier.runtimeconfig.json
+E:\Hogeschool\NaiveBayesClassifier\bin\Debug\netcoreapp2.0\NaiveBayesClassifier.runtimeconfig.dev.json
+E:\Hogeschool\NaiveBayesClassifier\bin\Debug\netcoreapp2.0\NaiveBayesClassifier.dll
+E:\Hogeschool\NaiveBayesClassifier\bin\Debug\netcoreapp2.0\NaiveBayesClassifier.pdb
+E:\Hogeschool\NaiveBayesClassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.csproj.CoreCompileInputs.cache
+E:\Hogeschool\NaiveBayesClassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.AssemblyInfoInputs.cache
+E:\Hogeschool\NaiveBayesClassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.AssemblyInfo.cs
+E:\Hogeschool\NaiveBayesClassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.dll
+E:\Hogeschool\NaiveBayesClassifier\obj\Debug\netcoreapp2.0\NaiveBayesClassifier.pdb

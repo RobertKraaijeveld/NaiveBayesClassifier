@@ -664,31 +664,29 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\robert\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Kraaijeveld\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\robert\\Projects\\Datascience Minor Project\\naivebayesclassifier\\NaiveBayesClassifier.csproj",
+      "projectUniqueName": "E:\\Hogeschool\\NaiveBayesClassifier\\NaiveBayesClassifier.csproj",
       "projectName": "NaiveBayesClassifier",
-      "projectPath": "C:\\Users\\robert\\Projects\\Datascience Minor Project\\naivebayesclassifier\\NaiveBayesClassifier.csproj",
-      "packagesPath": "C:\\Users\\robert\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\robert\\Projects\\Datascience Minor Project\\naivebayesclassifier\\obj\\",
+      "projectPath": "E:\\Hogeschool\\NaiveBayesClassifier\\NaiveBayesClassifier.csproj",
+      "packagesPath": "C:\\Users\\Kraaijeveld\\.nuget\\packages\\",
+      "outputPath": "E:\\Hogeschool\\NaiveBayesClassifier\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\robert\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Kraaijeveld\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://www.nuget.org/api/v2": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
