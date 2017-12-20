@@ -7,6 +7,8 @@ namespace NaiveBayesClassifier
     public class NaiveBayesClassifier
     {
         public List<Record> classifiedSet;
+        //add Dict of counts
+        private Dictionary<string, int> classificationCounts = new Dictionary<string, int>();
         private Table<string, double> FrequencyTable = new Table<string, double>();
         private Table<string, double> LikelihoodTable = new Table<string, double>();
 
@@ -14,70 +16,101 @@ namespace NaiveBayesClassifier
         {
             this.classifiedSet = classifiedSet;
 
-            CreateFrequencyTable();
+            CreateFrequencyTableAndCountClassifications();
             CreateLikelihoodTable();
         }
 
-        private void CreateFrequencyTable()
+        public string GetClassification(Record recordToBeClassified)
+        {
+            var likelihoodsPerClassification = new Dictionary<string, double>();
+
+            foreach (var possibleClassification in FrequencyTable.rowsPerColumn.Keys)
+            {
+                var thisClassificationsProbability = GetProbabilityOfGivenClassification(possibleClassification); 
+                likelihoodsPerClassification.Add(possibleClassification, thisClassificationsProbability);
+            }
+
+            var sortedLikelihoodsPerClassification = likelihoodsPerClassification.OrderByDescending(kv => kv.Value).ToList();
+            var mostLikelyClassification = sortedLikelihoodsPerClassification.First();
+
+            Console.WriteLine("The most likely classification is " + mostLikelyClassification.Key + ", value is " + mostLikelyClassification.Value);
+            return mostLikelyClassification.Key; 
+        }
+
+        private double GetProbabilityOfGivenClassification(string classification)
+        {
+            var priorClassProbability = GetClassPriorProbability(classification);    
+            double finalProbability = priorClassProbability;
+
+            foreach(var predictorLikelihood in LikelihoodTable.rowsPerColumn[classification])
+            {
+                finalProbability = finalProbability * predictorLikelihood.Value;
+            }
+            return finalProbability;
+        }
+
+
+        /**
+        Table creation
+        **/
+
+        private void CreateFrequencyTableAndCountClassifications()
         {
             foreach (var record in classifiedSet)
             {
-                /*
-                //yay for containskey checks
-                if (!FrequencyTable.rowsPerColumn.ContainsKey(record.classification))
-                    FrequencyTable.rowsPerColumn.Add(record.classification, new Dictionary<string, double>());
-                */
+                //populating count dict
+                if(!classificationCounts.ContainsKey(record.classification))
+                    classificationCounts.Add(record.classification, 1);
+                else
+                    classificationCounts[record.classification] += 1;
 
-                
-                foreach (var factor in record.Factors)
+                //populating frequency table
+                FrequencyTable.PotentiallyAddClassification(record.classification);
+
+                foreach (var predictor in record.predictors)
                 {
-                    if (!FrequencyTable[record.classification].ContainsKey(factor.Key))
-                        FrequencyTable[record.classification].Add(factor.Key, 0);
+                    if (!FrequencyTable.rowsPerColumn[record.classification].ContainsKey(predictor.Key))
+                        FrequencyTable.rowsPerColumn[record.classification].Add(predictor.Key, 0);
 
-                    if (factor.Value == true)
+                    if (predictor.Value == true)
                     {
-                        FrequencyTable[record.classification][factor.Key] += 1;
+                        FrequencyTable.rowsPerColumn[record.classification][predictor.Key] += 1;
                     }
                 }
             }
-
-            foreach (var row in FrequencyTable["Conservative"])
-                Console.WriteLine("Factor " + row.Key + " shows up " + row.Value + " times for conservatives");
         }
 
         private void CreateLikelihoodTable()
         {
-            LikelihoodTable = FrequencyTable;
             foreach (var record in FrequencyTable.rowsPerColumn)
             {
-                var classificationOfItem = record.Item1;
-                Console.WriteLine("LIKELIHOOD: classificationOfItem = " + classificationOfItem);
-                //The corresponding item in the likelihoodtable is the value / the amount with that same class
+                var classificationOfItem = record.Key;
+                LikelihoodTable.PotentiallyAddClassification(classificationOfItem);
 
-                foreach (var factor in record.Item2)
+                foreach (var predictor in record.Value)
                 {
-                    LikelihoodTable[classificationOfItem][factor.Key] = factor.Value / 1;//GetCountsOfClassifications(LikelihoodTable);
-                }
-            }
-        }
+                    var likelihoodOfThisPredictor = predictor.Value / GetCountsOfClassification(FrequencyTable, classificationOfItem);
 
-        private Dictionary<string, int> GetCountsOfClassifications(Table<string, double> table, string classification)
-        {
-            Dictionary<string, int> CountsForGivenClassification = new Dictionary<string, int>();
-
-            //rowsPerColumn dictionary needs to be a list (?)
-            //Nah, just make sure the AMOUNT of classifications of a certain kind is known somewhere
-            foreach (var record in table.rowsPerColumn)
-            {
-                if (record.Item1 == classification)
-                {
-                    if (!CountsForGivenClassification.ContainsKey(record.Item1))
-                        CountsForGivenClassification.Add(record.Item1, 1);
+                    if (!LikelihoodTable.rowsPerColumn[classificationOfItem].ContainsKey(predictor.Key))
+                        LikelihoodTable.rowsPerColumn[classificationOfItem].Add(predictor.Key, likelihoodOfThisPredictor);
                     else
-                        CountsForGivenClassification[record.Item1] += 1;
+                        LikelihoodTable.rowsPerColumn[classificationOfItem][predictor.Key] = likelihoodOfThisPredictor;
                 }
             }
-            return CountsForGivenClassification;
         }
+
+        private int GetCountsOfClassification(Table<string, double> table, string classification)
+        {
+            return classificationCounts[classification];
+        }
+
+
+        /**
+        Formula computation
+        **/
+        private double GetClassPriorProbability(string classification)
+        {
+            return (double) classificationCounts[classification] / classifiedSet.Count();
+        }      
     }
 }
